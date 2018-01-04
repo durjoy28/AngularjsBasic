@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="module1">
+<head >
+	<title>AngularJs</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style> .blue{color:blue}</style>
+	<style> .green{color:green}</style>
+<style> .red{color:red}</style>
+<script src="angular.min.js"></script>	
+<script src="app.js"></script>
+<script src="datass.js"></script>
+</head>
+<body ng-controller="cntrl1">
+<h1>{{var1}}</h1>
+<h1>Name:{{myData.name}}</h1>
+<ul>
+	<li ng-repeat="my in mydatas">
+		<h1 class="green">{{my.name}}</h1>
+		<h1 class="blue">{{my.age}}</h1>
+		<h1 class="red">{{my.salary}}</h1>
+	</li>
+</ul>
+<div>
+<input type="text" ng-model="search">
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Salary</th>
+			<th>Position</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="emp in employees | orderBy:'+name' | filter:search">
+			<td>{{emp.name | uppercase}}</td>
+			<td>{{emp.salary | currency:'TK.':1}}</td>
+			<td>{{emp.position}}</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+
+</body>
+</html>
